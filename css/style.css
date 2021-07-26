@@ -1,0 +1,68 @@
+body {
+    font-family: Arial;
+}
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.list-block {
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 60px;
+    min-height: 500px;
+    display: flex;
+    width: 700px;
+    border: 1px solid #000;
+    padding: 20px;
+    align-items: center;
+}
+
+.list-block__control-panel {
+    margin: 30px 0 15px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.list-block__text {
+    margin-right: 10px;
+}
+
+.list-block__input {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: 1px solid #000;
+}
+
+.list-block__button {
+    margin-left: 10px;
+    padding: 11px 31px;
+    border-radius: 20px;
+}
+
+.list-block__shopping-list {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.list-block__list-item {
+    list-style: disc;
+}
+
+.list-block__list-item:not(:first-child) {
+    margin-top: 10px;
+}
+
+.list-block__delete-button {
+    padding: 4px 12px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin-left: 10px;
+    background: none;
+    color: grey;
+}
