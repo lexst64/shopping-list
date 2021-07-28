@@ -12,9 +12,9 @@ const inputTips = [
     'For exmpl: buy a notebook',
     'For exmpl: close a door',
     'For exmpl: find a key',
-    'For exmpl: go to a gym',
-    'For exmpl: go to a gym',
-    'For exmpl: go to a gym',
+    'For exmpl: finish a job',
+    'For exmpl: meet friends',
+    'For exmpl: buy a boll',
 ]
 
 const getRandomTip = () => inputTips[parseInt(Math.random() * 10).toFixed(0)]
@@ -22,11 +22,12 @@ const getRandomTip = () => inputTips[parseInt(Math.random() * 10).toFixed(0)]
 let tip = getRandomTip()
 input.setAttribute('placeholder', tip) 
 
-button.addEventListener('click', () => {
+button.onclick = () => {
     const inputValue = input.value
     input.value = ''
     
-    if (inputValue.trim() !== '') {
+    // '', undefinded, null, 0, false --- return false
+    if (inputValue.trim()) {
         const listItem = document.createElement('li')
         listItem.textContent = inputValue
         listItem.className = 'list-block__list-item'
@@ -34,23 +35,32 @@ button.addEventListener('click', () => {
         
         const deleteButton = document.createElement('button')
         deleteButton.textContent = 'delete'
-        deleteButton.className = 'list-block__delete-button button'
+        deleteButton.className = 'list-block__delete-button'
         listItem.appendChild(deleteButton)
 
-        deleteButton.addEventListener('click', () => {
-            listItem.remove()
-        }, false)
+        deleteButton.onclick = () => listItem.remove()
+        
+        tip = getRandomTip()
+        input.setAttribute('placeholder', tip)
     }
-    tip = getRandomTip()
-    input.setAttribute('placeholder', tip) 
+    
     input.focus()
+}
 
-}, false)
+// when Enter is pressed, button 'Add' is clicked 
+input.addEventListener('keydown', event => {
+    if(event.code === 'Enter') button.click()
+}) 
 
-input.addEventListener('focus', () => {
-    input.setAttribute('placeholder', '') 
+// when / is pressed, input is focused
+addEventListener('keydown', event => {
+    if (event.code === 'Slash') setTimeout(() => input.focus())
 })
 
-input.addEventListener('blur', () => {
-    input.setAttribute('placeholder', tip) 
+// when Esc is pressed, input is unfocused
+addEventListener('keydown', event => {
+    if (event.code === 'Escape') setTimeout(() => input.blur())
 })
+
+// using css selector .class , #id , tag
+document.querySelectorAll('div').forEach(item => console.log(item.nextElementSibling))

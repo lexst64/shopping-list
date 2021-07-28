@@ -1,0 +1,63 @@
+@use './resets';
+
+body {
+    font-family: Arial;
+}
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.list-block {
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 60px;
+    min-height: 500px;
+    display: flex;
+    width: 700px;
+    border: 1px solid #000;
+    padding: 20px;
+    align-items: center;
+
+    &__control-panel {
+        margin: 30px 0 15px 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    &__text {
+        margin-right: 10px;
+    }
+    &__input {
+        border-radius: 20px;
+        padding: 10px 15px;
+        border: 1px solid #000;
+    }
+    &__button {
+        margin-left: 10px;
+        padding: 11px 31px;
+        border-radius: 20px;
+    }
+    &__shopping-list {
+        width: 100%;
+        padding: 0 30px;
+    }
+    &__list-item {
+        list-style: disc;
+    }
+    &__list-item:not(:first-child) {
+        margin-top: 10px;
+    }
+    &__delete-button {
+        padding: 4px 12px;
+        border: 1px solid grey;
+        border-radius: 20px;
+        margin-left: 10px;
+        background: none;
+        color: grey;
+    }
+}
