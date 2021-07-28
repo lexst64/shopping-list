@@ -73,6 +73,9 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: Arial;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 h1 {
@@ -82,10 +85,24 @@ h1 {
   font-weight: 600;
 }
 
+.secondary-button {
+  padding: 4px 12px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  background: none;
+  color: grey;
+}
+
+.primary-button {
+  padding: 11px 31px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background: none;
+}
+
 .list-block {
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 20px;
   min-height: 500px;
   display: flex;
   width: 700px;
@@ -109,8 +126,6 @@ h1 {
 }
 .list-block__button {
   margin-left: 10px;
-  padding: 11px 31px;
-  border-radius: 20px;
 }
 .list-block__shopping-list {
   width: 100%;
@@ -123,12 +138,39 @@ h1 {
   margin-top: 10px;
 }
 .list-block__delete-button {
-  padding: 4px 12px;
-  border: 1px solid grey;
-  border-radius: 20px;
   margin-left: 10px;
-  background: none;
-  color: grey;
 }
 
-/*# sourceMappingURL=style2.css.map */
+.change-theme-button {
+  margin-top: 40px;
+}
+
+.dark-theme-color {
+  color: #fff;
+}
+
+.dark-theme-bg {
+  background: #1f1f1f;
+}
+
+.dark-theme-border {
+  border-color: #fff;
+}
+
+.dark-theme-placeholder {
+  color: #fff;
+}
+.dark-theme-placeholder::placeholder {
+  color: rgba(255, 255, 255, 0.808);
+}
+.dark-theme-placeholder::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.808);
+}
+.dark-theme-placeholder::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.808);
+}
+.dark-theme-placeholder:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.808);
+}
+
+/*# sourceMappingURL=style.css.map */
