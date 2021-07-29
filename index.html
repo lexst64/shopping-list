@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list</title>
-    <link rel="stylesheet" href="css/resets.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link href='fonts/fontawesome-webfont.ttf' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
+    <div class="switch-theme-button">
+        <p class="switch-theme-button__text">Light theme</p>
+        <input type="checkbox" class="switch-theme-button__checkbox">
+        <div class="switch-theme-button__button">
+        </div>
+    </div>
     <div class="list-block">
-        <h1>Your shopping list:</h1>
+        <!-- Hello -->
+        <h1>Your shopping list</h1>
         <div class="list-block__control-panel">
             <span class="list-block__text">Enter a new item</span>
             <input class="list-block__input" type="text">
-            <button class="list-block__button button">Add</button>
+            <button class="list-block__button primary-button">Add</button>
         </div>
-        <ul class="list-block__shopping-list">
+        <ul id="loop" class="list-block__shopping-list">
 
         </ul>
     </div>
