@@ -3,7 +3,10 @@
 const button = document.querySelector('.list-block__button')
 const input = document.querySelector('.list-block__input')
 const list = document.querySelector('.list-block__shopping-list')
-const changeThemeButton = document.querySelector('.change-theme-button')
+const switchThemeButton = document.querySelector('.switch-theme-button__button')
+const switchThemeCheckbox = document.querySelector('.switch-theme-button__checkbox')
+const switchThemeText = document.querySelector('.switch-theme-button__text')
+
 
 const inputTips = [
     'For exmpl: buy a coffe',
@@ -19,6 +22,7 @@ const inputTips = [
 ]
 
 const getRandomTip = () => inputTips[parseInt(Math.random() * 10).toFixed(0)]
+const setCSSVarProperty = (variable, value) => document.documentElement.style.setProperty(variable, value)
 
 let tip = getRandomTip()
 input.setAttribute('placeholder', tip) 
@@ -53,26 +57,23 @@ input.addEventListener('keydown', event => {
     if(event.code === 'Enter') button.click()
 }) 
 
-// dark theme button
-changeThemeButton.onclick = () => {
-    const forBgAndBorder = '.list-block, .list-block__input, body'
-    const forBorder = '.secondary-button, .primary-button'
-    const forColor = 'h1, .list-block__text, .secondary-button, .primary-button, .list-block__list-item'
-    
-    document.querySelectorAll(forBgAndBorder).forEach(item => {
-        const classList = item.classList
-        classList.toggle('dark-theme-bg')
-        classList.toggle('dark-theme-border')
-    })
-    document.querySelectorAll(forBorder).forEach(item => {
-        const classList = item.classList
-        classList.toggle('dark-theme-border')
-    })
-    document.querySelectorAll(forColor).forEach(item => {
-        const classList = item.classList
-        classList.toggle('dark-theme-color')
-    })
-    document.querySelector('.list-block__input').classList.toggle('dark-theme-placeholder')
+//dark theme CHECKBOX
+switchThemeButton.onclick = () => {
+    switchThemeCheckbox.click()
+    //switch dark theme
+    if (switchThemeCheckbox.checked === true) {
+        setCSSVarProperty('--background-color', 'rgb(37, 37, 37)')
+        setCSSVarProperty('--text-color', '#fff')
+        setCSSVarProperty('--border-color', '#fff')
+        switchThemeText.textContent = 'Dark theme'
+    }
+    //switch light theme
+    if (switchThemeCheckbox.checked === false) {
+        setCSSVarProperty('--background-color', '#fff')
+        setCSSVarProperty('--text-color', '#000')
+        setCSSVarProperty('--border-color', '#000')
+        switchThemeText.textContent = 'Light theme'
+    }
 }
 
 // when / is pressed, input is focused
@@ -85,11 +86,19 @@ addEventListener('keydown', event => {
     if (event.code === 'Escape') setTimeout(() => input.blur())
 })
 
+
+
+
+// it's learning ---
 // using css selector .class , #id , tag --- learning part
 // document.querySelectorAll('div').forEach(item => console.log(item.nextElementSibling))
 
 const resultArray = Array.from(document.querySelectorAll('*')).filter(item => item.className === 'list-block__control-panel')
 const findedElement = resultArray.pop()
+// console.log(findedElement.childNodes[0] instanceof Node) // Comment. Text Node. true, but if instanceof Element - will be false
+// console.log(findedElement.childNodes[0].nodeType) //3 text node <!-- comment -->
+// console.log(findedElement instanceof HTMLElement) // true
+
 // console.log(findedElement.previousElementSibling)
 // console.log(findedElement.previousSibling)
 
