@@ -1,2 +1,1 @@
-live example ---
-https://alexey-rancho.github.io/shopping-list/
+live example --- https://lexst64.github.io/shopping-list/
